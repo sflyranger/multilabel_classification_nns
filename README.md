@@ -1,58 +1,59 @@
-# Multi-label Classification with Dense Embeddings
+# Multi-label Classification with Dense and Sparse Embeddings
 
-This repository contains a multi-label classification project focused on classifying questions from StackExchange into various tech domains using dense embeddings within a neural network. The task involves building a custom neural network architecture and using various PyTorch functionalities to achieve meaningful results. The project also handles class imbalances using appropriate metrics like Hamming Loss.
+This repository contains two notebooks that explore the use of **dense embeddings** and **sparse embeddings (TF-IDF)** in a multi-label classification task. Both approaches are applied using a multi-layer perceptron (MLP) neural network, and the results are compared to see how each type of embedding impacts performance.
 
-## Project Overview
+## Notebook: `dense_embeddings_stack_posts_nn`
 
-### Dataset
-This dataset is a Kaggle competition dataset, where the goal is to classify questions from StackExchange across multiple tech domains. Each post can mention more than one tech domain, making it a multi-label classification problem.
+In this notebook, I utilize **dense embeddings** for the multi-label classification task. Dense embeddings, like Word2Vec or pre-trained embeddings such as BERT, are learned representations that capture **semantic relationships** between words. This allows the model to gain a deeper understanding of the context within the text, which typically leads to better performance compared to static, frequency-based embeddings like TF-IDF.
 
-### Key Features
-- **Text Processing**: Tokenizes text and builds a vocabulary using the training data.
-- **Custom Dataset**: Implements a custom dataset class for handling input data and labels.
-- **Model**: A neural network using dense embeddings via PyTorch’s `EmbeddingBag` layer.
-- **Class Imbalance Handling**: Uses weighted loss functions to account for class imbalance.
-- **Evaluation**: Evaluates the model using Hamming Loss, Precision, Recall, and F1-Score.
-- **Early Stopping**: Incorporates early stopping to avoid overfitting.
+### Key highlights:
+- **Embedding layer**: The model learns or uses pre-trained dense embeddings, allowing for richer representations of the input text.
+- **Neural network structure**: A multi-layer perceptron (MLP) with multiple hidden layers, activation functions, batch normalization, and dropout to prevent overfitting.
+- **Model performance**: The model shows significant improvements in both **train** and **validation loss** as it learns from the dense embeddings.
+- **Generalization**: Dense embeddings enable better generalization when applied to unseen data, making this a preferred approach for semantic tasks.
 
-## Model Architecture
+### Results:
+- **Validation loss and metric curves**:
+  
+  ![image](https://github.com/user-attachments/assets/ef56a99b-0c35-47b8-ba1d-d7a268425124)
+  ![image](https://github.com/user-attachments/assets/9c12b272-ac93-4021-b1bd-6a9770a985ba)
 
-The architecture of the model consists of the following layers:
 
-1. **Embedding Bag Layer** - Captures dense embeddings for text sequences.
-2. **Fully Connected Layer 1** - First hidden layer with ReLU activation, BatchNorm, and Dropout.
-3. **Fully Connected Layer 2** - Second hidden layer with ReLU activation, BatchNorm, and Dropout.
-4. **Output Layer** - Produces outputs for each class (multi-label classification).
 
-### Hyperparameters
-- Embedding Dimension: 300
-- Hidden Layer 1 Neurons: 200
-- Hidden Layer 2 Neurons: 100
-- Dropout Probability: 0.5
-- Learning Rate: 0.001
-- Batch Size: 128
-- Epochs: 5
+- **Confusion matrix**:
+  
+ 
 
-## Key Steps
+## Notebook: `sparse_embeddings_stack_posts_nn`
 
-### 1. Preprocessing
-- Convert text into indices using the vocabulary.
-- Compute offsets for batch processing.
+In contrast to the dense embeddings, this notebook uses **TF-IDF sparse embeddings**. These are pre-calculated vectors based on word frequency, and they remain static throughout the training process. While TF-IDF can be useful for simpler models and tasks, it struggles to capture the semantic meaning behind words, which limits its effectiveness in this classification task.
 
-### 2. Training
-- The model is trained using `BCEWithLogitsLoss` with custom class weights to balance the dataset.
-- Gradient clipping is applied to prevent exploding gradients.
+### Key highlights:
+- **TF-IDF embeddings**: These are **precomputed** and do not update during training, making them less adaptable to the data.
+- **Simplified model setup**: Since the embeddings are static, we don’t need a collate function, and the model is slightly simpler.
+- **Performance**: The model quickly plateaus in performance since it’s relying on frequency-based embeddings that don't learn or adapt during training.
+- **Limitations**: While TF-IDF embeddings are useful for certain tasks, they are not ideal for tasks that require understanding **context** and **semantic relationships** in the text.
 
-### 3. Evaluation
-- Evaluated using **Hamming Loss** for multi-label classification.
-- **Precision**, **Recall**, and **F1-Score** are calculated for each class.
+### Results:
+- **Validation loss and metric curves**:
 
-## Model Results
-_Model results and relevant plots go here._
+  *(Add validation loss and metric curves here for `sparse_embeddings_stack_posts_nn`)*
 
-## Inference Pipeline
-The inference pipeline follows these steps:
-1. Preprocess the text data, converting them to indices using the vocab.
-2. Pass the indices through the model to get the predictions.
-3. Post-process the logits to obtain class labels and map them back to their class names.
+- **Confusion matrix**:
+
+  *(Add confusion matrix images here for `sparse_embeddings_stack_posts_nn`)*
+
+## Lessons Learned
+
+Through this comparison, it's clear that **dense embeddings** significantly outperform **sparse embeddings** like TF-IDF when it comes to capturing the semantic meaning of text. Dense embeddings provide a more nuanced understanding of the relationships between words, which leads to improved performance in classification tasks.
+
+That said, **TF-IDF** still has its place for simpler tasks where word frequency is enough, but for multi-label classification and other complex NLP tasks, **dense embeddings** offer a much better solution.
+
+## Next Steps
+- Explore different types of **dense embeddings** (e.g., BERT, GloVe) to further improve the model's ability to classify text.
+- Experiment with transfer learning by using pre-trained models and fine-tuning them on this specific dataset.
+- Continue to optimize the model architecture to strike a balance between **accuracy** and **computational efficiency**.
+
+Feel free to explore the notebooks for a detailed walkthrough of the model architectures, training processes, and results.
+
 
