@@ -21,13 +21,14 @@ In this notebook, I utilize **dense embeddings** for the multi-label classificat
 
 
 
-- **Confusion matrix**:
+- **Confusion matrix and Hamming Distance Scores**:
+
   ![image](https://github.com/user-attachments/assets/b3a4b4ae-5230-4910-91ea-d7479e0b1814)
 
   ![image](https://github.com/user-attachments/assets/261e704b-5cae-4d93-be4c-322674946882)
 
+  Note: I chose these colors and the font within the notebook in the spirit of Halloween :)
 
- 
 
 ## Notebook: `sparse_embeddings_stack_posts_nn`
 
@@ -42,11 +43,20 @@ In contrast to the dense embeddings, this notebook uses **TF-IDF sparse embeddin
 ### Results:
 - **Validation loss and metric curves**:
 
-  *(Add validation loss and metric curves here for `sparse_embeddings_stack_posts_nn`)*
+  ![image](https://github.com/user-attachments/assets/8bf2e109-dda4-46c9-a289-4fc08df17085)
+
+  ![image](https://github.com/user-attachments/assets/1543b0b8-d412-4fd7-881c-36a9118bb327)
+
 
 - **Confusion matrix**:
 
-  *(Add confusion matrix images here for `sparse_embeddings_stack_posts_nn`)*
+  ![image](https://github.com/user-attachments/assets/ddd3629f-0841-4ee0-90a1-9aa416bb464d)
+
+  ![image](https://github.com/user-attachments/assets/51ab8fff-9779-4fc1-8e94-87662fe588ee)
+
+  Note: I don't know why I chose these colors but it worked with the rest of the notebook.
+
+
 
 ## Lessons Learned
 
