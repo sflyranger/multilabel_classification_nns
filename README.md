@@ -69,6 +69,8 @@ That said, **TF-IDF** still has its place for simpler tasks where word frequency
 - Experiment with transfer learning by using pre-trained models and fine-tuning them on this specific dataset.
 - Continue to optimize the model architecture to strike a balance between **accuracy** and **computational efficiency**.
 
-Feel free to explore the notebooks for a detailed walkthrough of the model architectures, training processes, and results.
+Feel free to explore my notebooks for a detailed walkthrough of the model architectures, training processes, and results. 
+
+- Happy Learning :)
 
 
