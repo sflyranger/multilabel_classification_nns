@@ -16,12 +16,17 @@ In this notebook, I utilize **dense embeddings** for the multi-label classificat
 - **Validation loss and metric curves**:
   
   ![image](https://github.com/user-attachments/assets/ef56a99b-0c35-47b8-ba1d-d7a268425124)
+  
   ![image](https://github.com/user-attachments/assets/9c12b272-ac93-4021-b1bd-6a9770a985ba)
 
 
 
 - **Confusion matrix**:
-  
+  ![image](https://github.com/user-attachments/assets/b3a4b4ae-5230-4910-91ea-d7479e0b1814)
+
+  ![image](https://github.com/user-attachments/assets/261e704b-5cae-4d93-be4c-322674946882)
+
+
  
 
 ## Notebook: `sparse_embeddings_stack_posts_nn`
