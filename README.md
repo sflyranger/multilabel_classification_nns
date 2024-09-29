@@ -1,16 +1,29 @@
 # Multi-label Classification with Dense and Sparse Embeddings
 
-This repository contains two notebooks that explore the use of **dense embeddings** and **sparse embeddings (TF-IDF)** in a multi-label classification task. Both approaches are applied using a multi-layer perceptron (MLP) neural network, and the results are compared to see how each type of embedding impacts performance.
+This repository contains two notebooks that demonstrate the use of **dense embeddings** (using an embedding bag) and **sparse embeddings** (via TF-IDF) for multi-label classification tasks. Both approaches are applied using a **multi-layer perceptron (MLP)** neural network to classify text data into multiple categories. The results show clear differences in performance between the two embedding strategies, and the comparison provides useful insights into their strengths and limitations.
+
+## Dataset
+
+The dataset used in this project comes from a Kaggle competition where the task was to classify questions from **StackExchange** users into different tech domains. Since each post could mention multiple tech domains, this is a **multi-label classification** task. The domains cover a range of technologies, and each question may be tagged with more than one relevant technology.
+
+### Dataset highlights:
+- **Source**: Kaggle competition data.
+- **Task**: Classifying questions into multiple tech domains.
+- **Multi-label nature**: Each question can belong to multiple categories, making this an ideal dataset for exploring multi-label classification.
+  
+The goal of this project is to build a model using both **dense embeddings** and **sparse embeddings (TF-IDF)** to classify these questions. Along the way, I aim to analyze and compare the performance and benefits of these two embedding strategies in this context.
 
 ## Notebook: `dense_embeddings_stack_posts_nn`
 
-In this notebook, I utilize **dense embeddings** for the multi-label classification task. Dense embeddings, like Word2Vec or pre-trained embeddings such as BERT, are learned representations that capture **semantic relationships** between words. This allows the model to gain a deeper understanding of the context within the text, which typically leads to better performance compared to static, frequency-based embeddings like TF-IDF.
+In this notebook, I use **dense embeddings** with an **embedding bag** layer, which allows the model to learn and adapt word representations as it trains. This method helps the model better capture the relationships between words, resulting in improved classification performance.
+
 
 ### Key highlights:
-- **Embedding layer**: The model learns or uses pre-trained dense embeddings, allowing for richer representations of the input text.
-- **Neural network structure**: A multi-layer perceptron (MLP) with multiple hidden layers, activation functions, batch normalization, and dropout to prevent overfitting.
-- **Model performance**: The model shows significant improvements in both **train** and **validation loss** as it learns from the dense embeddings.
-- **Generalization**: Dense embeddings enable better generalization when applied to unseen data, making this a preferred approach for semantic tasks.
+- **Embedding Bag Layer**: The model leverages an embedding bag that learns the representations as it goes, making each word’s context more meaningful to the task at hand.
+- **MLP with Layers**: A multi-layer perceptron (MLP) with layers of fun – hidden layers, ReLU activations, batch normalization (because we love stability), and dropout to keep overfitting at bay.
+- **Performance**: With dense embeddings, the model evolves and learns as the training progresses. You’ll see improvements in **train and validation loss** as the model gets better at figuring out the semantic relationships in the data.
+- **Generalization**: What makes this approach the best? The model can generalize to new data much better, thanks to the dynamic nature of dense embeddings.
+
 
 ### Results:
 - **Validation loss and metric curves**:
