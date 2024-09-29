@@ -56,9 +56,3 @@ The inference pipeline follows these steps:
 2. Pass the indices through the model to get the predictions.
 3. Post-process the logits to obtain class labels and map them back to their class names.
 
-## Usage
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
-   cd your-repo-name
