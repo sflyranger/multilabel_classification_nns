@@ -20,7 +20,7 @@ In this notebook, I use **dense embeddings** with an **embedding bag** layer, wh
 
 ### Key highlights:
 - **Embedding Bag Layer**: The model leverages an embedding bag that learns the representations as it goes, making each word’s context more meaningful to the task at hand.
-- **MLP with Layers**: A multi-layer perceptron (MLP) with layers of fun – hidden layers, ReLU activations, batch normalization (because we love stability), and dropout to keep overfitting at bay.
+- **MLP with Layers**: A multi-layer perceptron (MLP) with multiple layers -hidden layers, ReLU activations, batch normalization (for stability), and dropout to add noise and reduce overfitting.
 - **Performance**: With dense embeddings, the model evolves and learns as the training progresses. You’ll see improvements in **train and validation loss** as the model gets better at figuring out the semantic relationships in the data.
 - **Generalization**: What makes this approach the best? The model can generalize to new data much better, thanks to the dynamic nature of dense embeddings.
 
